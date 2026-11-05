@@ -178,7 +178,7 @@ a{ color:inherit; }
 
 /* 前置数字条 */
 .statbar{
-  display:grid; grid-template-columns:.92fr 1.28fr .92fr;
+  display:grid; grid-template-columns:repeat(4,1fr);
   border-top:1px solid var(--ink); border-bottom:1px solid var(--rule);
 }
 .stat{
@@ -187,7 +187,7 @@ a{ color:inherit; }
 }
 .stat:last-child{ border-right:0; padding-right:0; }
 .stat .n{
-  font-family:var(--num); font-size:clamp(20px,2.2vw,28px);
+  font-family:var(--num); font-size:clamp(17px,1.72vw,23px);
   letter-spacing:-.01em; line-height:1.15;
   font-variant-numeric:tabular-nums; white-space:nowrap;
 }
@@ -276,6 +276,7 @@ a{ color:inherit; }
 .cap-do{ color:var(--ink-2); line-height:1.75; }
 .cap-do b{ color:var(--ink); font-weight:500; font-variant-numeric:tabular-nums; }
 .nb{ white-space:nowrap; }
+.nw{ white-space:nowrap; }
 .cap-tag{ white-space:nowrap; }
 
 /* 等级标记 */
@@ -689,8 +690,10 @@ dialog.ev-modal::backdrop{
   .nav{ display:none; }
   .hero{ padding:104px 0 48px; }
   .hero-grid{ padding-top:28px; }
-  .statbar{ grid-template-columns:1fr; }
-  .stat{ border-right:0; border-bottom:1px solid var(--rule-soft); padding:16px 0; }
+  .statbar{ grid-template-columns:1fr 1fr; }
+  .stat{ padding:16px 10px 16px 0; border-bottom:1px solid var(--rule-soft); }
+  .stat:nth-child(2n){ border-right:0; padding-right:0; }
+  .stat:nth-child(2n-1){ border-right:1px solid var(--rule-soft); }
   .stat:last-child{ border-bottom:0; }
   .sec{ padding:56px 0; }
   .sec-head{ grid-template-columns:26px 1fr; gap:2px 10px; margin-bottom:26px; align-items:start; }
@@ -734,7 +737,7 @@ dialog.ev-modal::backdrop{
   .hero h1 em{ background:none !important; animation:none !important; }
   .hero-lead{ font-size:9.6pt; margin-bottom:14pt; }
   .hero-meta{ font-size:7.5pt; padding-bottom:6pt; }
-  .statbar{ page-break-inside:avoid; grid-template-columns:.88fr 1.22fr .9fr; }
+  .statbar{ page-break-inside:avoid; grid-template-columns:repeat(4,1fr); }
   .stat{ padding:7pt 8pt 7pt 0; }
   .stat .n{ font-size:10.4pt; white-space:nowrap; letter-spacing:-.02em; }
   .stat .n .u{ font-size:7pt; }
@@ -767,8 +770,10 @@ dialog.ev-modal::backdrop{
 
   .tl-row{ break-inside:avoid; page-break-inside:avoid; }
 
-  .ev-group{ break-inside:avoid; }
-  .ev-grid{ grid-template-columns:repeat(5,1fr) !important; gap:7pt; }
+  .ev-group{ break-inside:auto; page-break-inside:auto; }
+  .ev-group h4{ break-after:avoid; page-break-after:avoid; }
+  .ev-group h4{ break-after:avoid; page-break-after:avoid; }
+  .ev-grid{ grid-template-columns:repeat(4,1fr) !important; gap:8pt; }
   .ev-item{ break-inside:avoid; page-break-inside:avoid; border:1px solid #ddd !important; }
   .ev-thumb{ aspect-ratio:1/1; }
   .cap{ font-size:6.6pt; padding:4pt 5pt 5pt; }
@@ -777,9 +782,17 @@ dialog.ev-modal::backdrop{
   .about{ grid-template-columns:1fr 1fr !important; gap:22pt; }
   .note-row{ break-inside:avoid; }
 
+  .contact{ break-inside:avoid; page-break-inside:avoid; padding:6pt 0 0; }
+  .contact h2{ font-size:17pt; line-height:1.2; margin-bottom:5pt; }
+  .contact .sub{ font-size:8pt; margin-bottom:9pt; }
+  .contact-grid{ gap:0 20pt; }
+  .c-item{ padding:6pt 0; }
+  .c-item .val{ font-size:9.4pt; }
+  .c-item .hint{ font-size:7pt; }
+  .foot{ margin-top:10pt; }
   .contact-grid{ grid-template-columns:1fr 1fr !important; }
   .c-item{ break-inside:avoid; }
-  .sec--contact h2{ font-size:24pt; }
+  .contact h2{ font-size:24pt; }
 
   a{ text-decoration:none; color:#000; }
   a[href^="http"]::after{ content:" (" attr(href) ")"; font-size:7pt; color:#555; }
